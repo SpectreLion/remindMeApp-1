@@ -20,6 +20,8 @@ import TaskHeader from './../components/TaskHeader';
 import AddTaskModal from './../modals/AddTaskModal';
 import Task from './../components/Task';
 import Colors from './../theme/colors';
+import WorkTasks from './../staticData/workTasks';
+
 
 const screen = Dimensions.get('window');
 
@@ -27,15 +29,16 @@ export default class TasksScreen extends Component<{}> {
 
   constructor(props){
     super(props);
-    //TODO: Retrevive from DataBase...
     this.state = {
-      tasks: [
-        { id: 1, title: 'Desayuno de trabajo', completed: false },
-        { id: 2, title: 'Desarrollar App', completed: false },
-        { id: 3, title: 'Diseñar Mocks', completed: false }
-      ],
+      tasks: [],
       showAddTaskModal: false
     }
+  }
+
+  componentWillMount(){
+    //Get categories parameter
+    //Set state based on curent category
+    this.setState({ tasks: WorkTasks });
   }
 
   openAddTaskModal(){
