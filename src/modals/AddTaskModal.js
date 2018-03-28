@@ -17,6 +17,14 @@ import {
 
 import Colors from './../theme/colors';
 
+import DatePicker from 'react-native-datepicker';
+
+import moment from 'moment'
+import 'moment/locale/es'
+moment.locale('es')
+
+
+
 const screen = Dimensions.get('window');
 
 export default class AddTaskModal extends Component<{}> {
@@ -24,7 +32,10 @@ export default class AddTaskModal extends Component<{}> {
   constructor(props){
     super(props);
     this.state = {
-      taskText: ''
+      taskText: '',
+      date:'',
+      Task:{}
+
     }
   }
 
@@ -35,6 +46,20 @@ export default class AddTaskModal extends Component<{}> {
       //TODO: show an alert to the user!
     }
   }
+  gDate() {
+
+      months =['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
+      const currentDate = new Date(),
+      month = months[currentDate.getMonth()],
+      year = currentDate.getFullYear(),
+      date = currentDate.getDate();
+
+
+     return `${date} de ${month} de ${year}`;
+  }
+
+
+
 
   render() {
 
@@ -52,6 +77,38 @@ export default class AddTaskModal extends Component<{}> {
                 style={styles.inputText}
                 placeholder="Nombre de la tarea"
                 onChangeText={ (text) => this.setState({taskText: text}) }/>
+              <DatePicker
+                   locale={'es'}
+                   style={{width: 300}}
+                   date= {this.state.date}
+                   mode="date"
+                   placeholder={this.gDate()}
+                   format="DD [de] MMMM [de] YYYY"
+                   minDate="01-January-2016"
+                   maxDate="31-December-2019"
+                   showIcon = {false}
+                   confirmBtnText="Confirmar"
+                   cancelBtnText="Cancelar"
+                   customStyles={{
+                    dateInput: {
+                       borderLeftWidth: 0,
+                       borderRightWidth: 0,
+                       borderTopWidth: 0
+                     },
+                     dateText: {
+                       fontFamily: 'Avenir',
+                       fontSize: 25,
+
+                     },
+                     placeholderText:{
+                       fontFamily: 'Avenir',
+                       fontSize: 25,
+
+                     }
+                     // ... You can check the source to find the other keys.
+                   }}
+                   onDateChange={(date) => {this.setState({date: date})}}
+                />
               <TouchableHighlight
                 style={styles.addButton}
                 underlayColor={Colors.touchableHover}
