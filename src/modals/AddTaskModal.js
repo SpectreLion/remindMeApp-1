@@ -23,8 +23,6 @@ import moment from 'moment'
 import 'moment/locale/es'
 moment.locale('es')
 
-
-
 const screen = Dimensions.get('window');
 
 export default class AddTaskModal extends Component<{}> {
@@ -33,9 +31,7 @@ export default class AddTaskModal extends Component<{}> {
     super(props);
     this.state = {
       taskText: '',
-      date:'',
-      Task:{}
-
+      date:''
     }
   }
 

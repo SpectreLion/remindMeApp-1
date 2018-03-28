@@ -31,6 +31,7 @@ export default class TasksScreen extends Component<{}> {
     super(props);
     this.state = {
       tasks: [],
+      task:{},
       showAddTaskModal: false
     }
   }
