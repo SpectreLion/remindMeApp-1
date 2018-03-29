@@ -24,6 +24,11 @@ import 'moment/locale/es'
 moment.locale('es')
 
 const screen = Dimensions.get('window');
+const currentDate = new Date();
+
+var cd2 = new Date();
+cd2.setFullYear(cd2.getFullYear(), cd2.getMonth() + 60)
+
 
 export default class AddTaskModal extends Component<{}> {
 
@@ -31,7 +36,7 @@ export default class AddTaskModal extends Component<{}> {
     super(props);
     this.state = {
       taskText: '',
-      date:''
+      date: currentDate
     }
   }
 
@@ -42,20 +47,6 @@ export default class AddTaskModal extends Component<{}> {
       //TODO: show an alert to the user!
     }
   }
-  gDate() {
-
-      months =['Enero','Febrero','Marzo','Abril','Mayo','Junio','Julio','Agosto','Septiembre','Octubre','Noviembre','Diciembre'];
-      const currentDate = new Date(),
-      month = months[currentDate.getMonth()],
-      year = currentDate.getFullYear(),
-      date = currentDate.getDate();
-
-
-     return `${date} de ${month} de ${year}`;
-  }
-
-
-
 
   render() {
 
@@ -74,35 +65,16 @@ export default class AddTaskModal extends Component<{}> {
                 placeholder="Nombre de la tarea"
                 onChangeText={ (text) => this.setState({taskText: text}) }/>
               <DatePicker
-                   locale={'es'}
-                   style={{width: 300}}
+                   style={s.wdt}
                    date= {this.state.date}
                    mode="date"
-                   placeholder={this.gDate()}
                    format="DD [de] MMMM [de] YYYY"
-                   minDate="01-January-2016"
-                   maxDate="31-December-2019"
+                   minDate={currentDate}
+                   maxDate= {cd2}
                    showIcon = {false}
                    confirmBtnText="Confirmar"
                    cancelBtnText="Cancelar"
-                   customStyles={{
-                    dateInput: {
-                       borderLeftWidth: 0,
-                       borderRightWidth: 0,
-                       borderTopWidth: 0
-                     },
-                     dateText: {
-                       fontFamily: 'Avenir',
-                       fontSize: 25,
-
-                     },
-                     placeholderText:{
-                       fontFamily: 'Avenir',
-                       fontSize: 25,
-
-                     }
-                     // ... You can check the source to find the other keys.
-                   }}
+                   customStyles = {s}
                    onDateChange={(date) => {this.setState({date: date})}}
                 />
               <TouchableHighlight
@@ -126,7 +98,6 @@ export default class AddTaskModal extends Component<{}> {
   }
 }
 
-// TODO: Create Theme styles (Buttons, Global Components, etc) so it can be imported on each component as required.
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
@@ -199,4 +170,25 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: Colors.primaryColorDarker
   }
+
 });
+
+const s = {
+  wdt:{
+    width:300
+  },
+dateInput: {
+   borderLeftWidth: 0,
+   borderRightWidth: 0,
+   borderTopWidth: 0
+ },
+ dateText: {
+   fontFamily: 'Avenir',
+   fontSize: 25,
+
+ },
+ placeholderText:{
+   fontFamily: 'Avenir',
+   fontSize: 25,
+ }
+};
