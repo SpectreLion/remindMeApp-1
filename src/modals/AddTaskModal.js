@@ -175,20 +175,21 @@ const styles = StyleSheet.create({
 
 const s = {
   wdt:{
-    width:300
+    width:326
   },
 dateInput: {
    borderLeftWidth: 0,
    borderRightWidth: 0,
-   borderTopWidth: 0
- },
- dateText: {
-   fontFamily: 'Avenir',
-   fontSize: 25,
+   borderTopWidth: 0,
+   borderColor: '#1a1d1d26'
 
  },
- placeholderText:{
-   fontFamily: 'Avenir',
-   fontSize: 25,
+ dateText: {
+   fontFamily:'Avenir-Book',
+   fontSize:20,
+   textAlign:'center',
+   lineHeight:30,
+   color:'#1d1d26'
+
  }
 };
