@@ -5,5 +5,6 @@ export default {
   gray: 'rgb(164, 164, 164)',
   separator: 'rgb(231,231,231)',
   touchableHover: 'rgba(0,0,0,.05)',
-  primaryText: 'rgb(29,29,38)'
+  primaryText: 'rgb(29,29,38)',
+  categoriesText: 'rgb(92, 92, 92)'
 }
