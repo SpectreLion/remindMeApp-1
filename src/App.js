@@ -15,8 +15,9 @@ import CategoriesScreen from './screens/CategoriesScreen';
 export default App = StackNavigator(
   {
     Home: { screen: HomeScreen },
-    Tasks: { screen: TasksScreen },
-    Categories: {screen: CategoriesScreen}
+    Categories: {screen: CategoriesScreen},
+    Tasks: { screen: TasksScreen }
+
   },
   {
     headerMode: 'none'

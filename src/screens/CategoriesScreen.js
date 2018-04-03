@@ -14,8 +14,7 @@ import {
   ScrollView
 } from 'react-native';
 import Colors from './../theme/colors';
-import Typografy from './../theme/typografy';
-import GridLayout from 'react-native-layout-grid';
+import CategoriesList from './../components/CategoriesList';
 
 export default class CategoriesScreen extends Component<{}> {
   constructor(props){
@@ -28,24 +27,17 @@ export default class CategoriesScreen extends Component<{}> {
       }
     }
 
-  renderGridItem= (item) =>(
-      <TouchableHighlight
-          underlayColor={Colors.touchableHover}>
-        <View style={styles.containerGrid}>
-          <Image
-              style={styles.icon}
-              source={item.image}/>
-          <Text style={ styles.categoryText }>{item.title}</Text>
-        </View>
-      </TouchableHighlight>
-  );
-
-  /*goToTaskScreen(){
-    this.props.navigation.navigate('Tasks');
-  }*/
+  renderCategoriesIcons(categories){
+          return categories.map( category => {
+            return (<CategoriesList
+                    key={category.id}
+                    id={category.id}
+                    title={category.title}
+                    image={category.image}/>)
+            });
+    }
 
   render() {
-    const items = [...this.state.categories];
     return (
         <ImageBackground
           style={styles.container}
@@ -53,22 +45,19 @@ export default class CategoriesScreen extends Component<{}> {
           <Image
             style={styles.remindMeLogo}
             source={require('./../images/remindMe-logo.png')}/>
-          <ScrollView style={styles.categoriesContainer}>
-            <GridLayout
-              items={items}
-              itemsPerRow={2}
-              renderItem={this.renderGridItem}/>
+          <ScrollView >
+            <View style={styles.categoriesContainer}>
+              {this.renderCategoriesIcons(this.state.categories)}
+            </View>
           </ScrollView>
         </ImageBackground>
     );
   }
 }
 
-// TODO: Create Theme styles (Buttons, Global Components, etc) so it can be imported on each component as required.
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'space-between',
     resizeMode: 'cover'
   },
   remindMeLogo:{
@@ -79,30 +68,10 @@ const styles = StyleSheet.create({
   },
   categoriesContainer: {
     flex:1,
-    marginTop:20
+    flexDirection:'row',
+    flexWrap:'wrap',
+    marginTop:20,
+    marginRight:10,
+    marginLeft:5
   },
-  containerGrid: {
-    flex: 1,
-    flexDirection: 'column',
-    alligItems: 'center',
-    backgroundColor:Colors.white,
-    borderRadius:15,
-    width:180,
-    height:230,
-    marginLeft:1,
-    marginTop:20
-  },
-  icon: {
-    width:159,
-    height:159,
-    marginTop: 15,
-    marginLeft:6
-  },
-  categoryText: {
-    ...Typografy.avenirFont,
-    color: Colors.categoriesText,
-    fontSize: 20,
-    textAlign:'center',
-    marginTop:10
-  }
 });

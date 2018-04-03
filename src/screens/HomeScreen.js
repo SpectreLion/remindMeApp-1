@@ -33,7 +33,6 @@ export default class HomeScreen extends Component<{}> {
         <TouchableHighlight
           style={styles.homeButton}
           underlayColor={Colors.touchableHover}
-          //Cambiar dentro de la funcion goToCategoriesScreen el valor para probra la siguiente tarea
           onPress={this.goToCategoriesScreen.bind(this)}>
           <Text style={styles.homeButtonText}>COMENZAR</Text>
         </TouchableHighlight>
@@ -43,7 +42,6 @@ export default class HomeScreen extends Component<{}> {
   }
 }
 
-// TODO: Create Theme styles (Buttons, Global Components, etc) so it can be imported on each component as required.
 const styles = StyleSheet.create({
   container: {
     flex: 1,
