@@ -20,8 +20,10 @@ import TaskHeader from './../components/TaskHeader';
 import AddTaskModal from './../modals/AddTaskModal';
 import Task from './../components/Task';
 import Colors from './../theme/colors';
+import HomeTasks from './../staticData/homeTasks';
+import FriendsTasks from './../staticData/friendsTasks';
+import SchoolTasks from './../staticData/schoolTasks';
 import WorkTasks from './../staticData/workTasks';
-
 
 const screen = Dimensions.get('window');
 
