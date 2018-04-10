@@ -23,11 +23,12 @@ import moment from 'moment'
 import 'moment/locale/es'
 moment.locale('es')
 
+
 const screen = Dimensions.get('window');
 const currentDate = new Date();
 
-var cd2 = new Date();
-cd2.setFullYear(cd2.getFullYear(), cd2.getMonth() + 60)
+let maximumDate = new Date();
+maximumDate.setFullYear(maximumDate.getFullYear(), maximumDate.getMonth() + 60)
 
 
 export default class AddTaskModal extends Component<{}> {
@@ -65,16 +66,16 @@ export default class AddTaskModal extends Component<{}> {
                 placeholder="Nombre de la tarea"
                 onChangeText={ (text) => this.setState({taskText: text}) }/>
               <DatePicker
-                   style={s.wdt}
+                   style={datePickerStyles.lengthDatePicker}
                    date= {this.state.date}
                    mode="date"
-                   format="DD [de] MMMM [de] YYYY"
+                   format= "DD [de] MMMM [de] YYYY"
                    minDate={currentDate}
-                   maxDate= {cd2}
+                   maxDate= {maximumDate}
                    showIcon = {false}
                    confirmBtnText="Confirmar"
                    cancelBtnText="Cancelar"
-                   customStyles = {s}
+                   customStyles = {datePickerStyles}
                    onDateChange={(date) => {this.setState({date: date})}}
                 />
               <TouchableHighlight
@@ -173,15 +174,15 @@ const styles = StyleSheet.create({
 
 });
 
-const s = {
-  wdt:{
+const datePickerStyles = {
+  lengthDatePicker:{
     width:326
   },
 dateInput: {
    borderLeftWidth: 0,
    borderRightWidth: 0,
    borderTopWidth: 0,
-   borderColor: '#1a1d1d26'
+   borderColor: Colors.primaryTxtOpacity
 
  },
  dateText: {
@@ -189,7 +190,7 @@ dateInput: {
    fontSize:20,
    textAlign:'center',
    lineHeight:30,
-   color:'#1d1d26'
+   color: Colors.primaryText
 
  }
 };
