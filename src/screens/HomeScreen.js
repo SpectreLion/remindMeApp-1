@@ -16,8 +16,8 @@ import Colors from './../theme/colors';
 
 export default class HomeScreen extends Component<{}> {
 
-  goToTaskScreen(){
-    this.props.navigation.navigate('Tasks');
+  goToCategoriesScreen(){
+    this.props.navigation.navigate('Categories');
   }
 
   render() {
@@ -33,7 +33,7 @@ export default class HomeScreen extends Component<{}> {
         <TouchableHighlight
           style={styles.homeButton}
           underlayColor={Colors.touchableHover}
-          onPress={this.goToTaskScreen.bind(this)}>
+          onPress={this.goToCategoriesScreen.bind(this)}>
           <Text style={styles.homeButtonText}>COMENZAR</Text>
         </TouchableHighlight>
         <Image source={require('./../images/avatars.png')} />
@@ -42,7 +42,6 @@ export default class HomeScreen extends Component<{}> {
   }
 }
 
-// TODO: Create Theme styles (Buttons, Global Components, etc) so it can be imported on each component as required.
 const styles = StyleSheet.create({
   container: {
     flex: 1,
