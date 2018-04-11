@@ -14,7 +14,7 @@ import {
   ScrollView
 } from 'react-native';
 import Colors from './../theme/colors';
-import CategoriesList from './../components/CategoriesList';
+import Categories from './../components/Categories';
 
 export default class CategoriesScreen extends Component<{}> {
   constructor(props){
@@ -29,7 +29,7 @@ export default class CategoriesScreen extends Component<{}> {
 
   renderCategoriesIcons(categories){
           return categories.map( category => {
-            return (<CategoriesList
+            return (<Categories
                     key={category.id}
                     id={category.id}
                     title={category.title}
@@ -57,8 +57,7 @@ export default class CategoriesScreen extends Component<{}> {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    resizeMode: 'cover'
+    flex: 1
   },
   remindMeLogo:{
     marginLeft:35,

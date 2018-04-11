@@ -1,6 +1,6 @@
 /**
  * RemindMe App
- * Categories List Component
+ * Categories  Component
  */
 
 import React, { Component } from 'react';
@@ -17,7 +17,7 @@ import Typografy from './../theme/typografy';
 
 
 const width = Dimensions.get('window').width;
-export default class CategoriesList extends Component<{}> {
+export default class Categories extends Component<{}> {
 
   constructor(props){
     super(props);
@@ -42,7 +42,7 @@ export default class CategoriesList extends Component<{}> {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    aligItems: 'center',
+    alignItems: 'center',
     backgroundColor:Colors.white,
     borderRadius:15,
     width:width/2-25,
