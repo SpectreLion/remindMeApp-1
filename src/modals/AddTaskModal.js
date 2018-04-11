@@ -17,14 +17,27 @@ import {
 
 import Colors from './../theme/colors';
 
+import DatePicker from 'react-native-datepicker';
+
+import moment from 'moment'
+import 'moment/locale/es'
+moment.locale('es')
+
+
 const screen = Dimensions.get('window');
+const currentDate = new Date();
+
+let maximumDate = new Date();
+maximumDate.setFullYear(maximumDate.getFullYear(), maximumDate.getMonth() + 60)
+
 
 export default class AddTaskModal extends Component<{}> {
 
   constructor(props){
     super(props);
     this.state = {
-      taskText: ''
+      taskText: '',
+      date: currentDate
     }
   }
 
@@ -52,6 +65,19 @@ export default class AddTaskModal extends Component<{}> {
                 style={styles.inputText}
                 placeholder="Nombre de la tarea"
                 onChangeText={ (text) => this.setState({taskText: text}) }/>
+              <DatePicker
+                   style={datePickerStyles.lengthDatePicker}
+                   date= {this.state.date}
+                   mode="date"
+                   format= "DD [de] MMMM [de] YYYY"
+                   minDate={currentDate}
+                   maxDate= {maximumDate}
+                   showIcon = {false}
+                   confirmBtnText="Confirmar"
+                   cancelBtnText="Cancelar"
+                   customStyles = {datePickerStyles}
+                   onDateChange={(date) => {this.setState({date: date})}}
+                />
               <TouchableHighlight
                 style={styles.addButton}
                 underlayColor={Colors.touchableHover}
@@ -73,7 +99,6 @@ export default class AddTaskModal extends Component<{}> {
   }
 }
 
-// TODO: Create Theme styles (Buttons, Global Components, etc) so it can be imported on each component as required.
 const styles = StyleSheet.create({
   modalContainer: {
     flex: 1,
@@ -146,4 +171,26 @@ const styles = StyleSheet.create({
     fontSize: 17,
     color: Colors.primaryColorDarker
   }
+
 });
+
+const datePickerStyles = {
+  lengthDatePicker:{
+    width:326
+  },
+dateInput: {
+   borderLeftWidth: 0,
+   borderRightWidth: 0,
+   borderTopWidth: 0,
+   borderColor: Colors.primaryTxtOpacity
+
+ },
+ dateText: {
+   fontFamily:'Avenir-Book',
+   fontSize:20,
+   textAlign:'center',
+   lineHeight:30,
+   color: Colors.primaryText
+
+ }
+};
