@@ -9,6 +9,7 @@ import {
   Text,
   TouchableHighlight,
   Image,
+  ImageBackground,
   Dimensions,
   View,
   TextInput,
@@ -54,13 +55,11 @@ export default class AddTaskModal extends Component<{}> {
     return (
       <View style={styles.modalContainer}>
         <View style={styles.wrapperContainer}>
-          <View style={styles.headerContainer}>
-            <Image
-              style={styles.remindMeLogo}
-              source={require('./../images/remindMe-logo.png')}/>
-          </View>
+          <ImageBackground style={styles.headerContainer}
+            source={require('./../../images/pattern.png')}>
+            <Text style={styles.addTaskText}>AGREGAR TAREA</Text>
+          </ImageBackground>
           <View style={styles.bodyContainer}>
-              <Text style={styles.addTaskText}>Agregar Tarea</Text>
               <TextInput
                 style={styles.inputText}
                 placeholder="Nombre de la tarea"
@@ -111,13 +110,9 @@ const styles = StyleSheet.create({
     height: 567
   },
   headerContainer:{
-    flex: 1,
+    width:377;
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.primaryColorDarker
-  },
-  remindMeLogo:{
-    width: 285,
+    alignItems: 'center'
   },
   bodyContainer: {
     flex: 1,
@@ -127,8 +122,10 @@ const styles = StyleSheet.create({
     padding: 20
   },
   addTaskText: {
-    fontFamily: 'Avenir',
-    fontSize: 16,
+    font-family:'Avenir-Book',
+    font-size:30,
+    marginTop:60,
+    marginRight:68,
     textAlign: 'center'
   },
   inputText:{
