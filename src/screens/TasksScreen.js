@@ -31,10 +31,15 @@ export default class TasksScreen extends Component<{}> {
 
   constructor(props){
     super(props);
+    this.goToCategoriesScreen = this.goToCategoriesScreen.bind(this);
     this.state = {
       tasks: [],
       showAddTaskModal: false
     }
+  }
+
+  goToCategoriesScreen(){
+    this.props.navigation.goBack();
   }
 
   componentWillMount(){
@@ -90,7 +95,7 @@ export default class TasksScreen extends Component<{}> {
 
     return (
       <View style={styles.container}>
-        <TaskHeader taksToBeCompleted={ this.calcultateToBeCompletedTasks(this.state.tasks) }/>
+        <TaskHeader goBackCategories={this.goToCategoriesScreen} taksToBeCompleted={ this.calcultateToBeCompletedTasks(this.state.tasks) }/>
         <ScrollView style={styles.tasksContainer}>
           {this.renderTasks(this.state.tasks)}
         </ScrollView>

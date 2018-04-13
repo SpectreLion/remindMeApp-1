@@ -21,6 +21,10 @@ const screen = Dimensions.get('window');
 
 export default class TaskHeader extends Component<{}> {
 
+  constructor(props) {
+    super(props);
+  }
+
   getFormatedDate(){
     //TODO: Move this to a static data folder
     const days = [ 'Lunes', 'Martes', 'Miércoles', 'Jueves', 'Viernes', 'Sábado', 'Domingo'];
@@ -43,7 +47,15 @@ export default class TaskHeader extends Component<{}> {
       <View style={styles.container}>
         <ImageBackground
           style={styles.containerBackground}
-          source={require('./../images/tasks-bg.jpg')}>
+          source={require('./../../images/pattern.png')}>
+          <TouchableHighlight
+            style={ styles.btnBack}
+            onPress={this.props.goBackCategories}>
+            <Image
+              style={styles.btnBackButtonIcon}
+              source={require('./../../images/back-btn.png')}
+            />
+          </TouchableHighlight>
           <Image
             style={styles.avatar}
             source={require('./../images/user-avatar.jpg')}/>
@@ -87,5 +99,16 @@ const styles = StyleSheet.create({
     fontSize: 16,
     color: Colors.gray,
     fontFamily: 'Avenir'
+  },
+  btnBack:{
+    alignSelf: 'flex-start',
+    width: 20,
+    height: 16,
+    marginTop:20,
+    marginLeft:20
+  },
+  btnBackButtonIcon: {
+    width: 20,
+    height: 16
   }
 });
