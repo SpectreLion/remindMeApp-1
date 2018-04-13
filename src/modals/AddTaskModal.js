@@ -110,23 +110,20 @@ const styles = StyleSheet.create({
     height: 567
   },
   headerContainer:{
-    width:377;
+    height:150,
     justifyContent: 'center',
     alignItems: 'center'
   },
   bodyContainer: {
     flex: 1,
-    height: 315,
     justifyContent: 'space-around',
     alignItems: 'center',
     padding: 20
   },
   addTaskText: {
-    font-family:'Avenir-Book',
-    font-size:30,
-    marginTop:60,
-    marginRight:68,
-    textAlign: 'center'
+    fontFamily:'Avenir-Book',
+    fontSize:30,
+    color: 'white'
   },
   inputText:{
     width: 300,
@@ -147,7 +144,7 @@ const styles = StyleSheet.create({
       borderColor: Colors.primaryColorDarker
   },
   addButtonText: {
-    fontFamily: 'Avenir',
+    fontFamily: 'Avenir-Book',
     textAlign: 'center',
     fontSize: 17,
     color: 'white'
@@ -163,7 +160,7 @@ const styles = StyleSheet.create({
       borderColor: Colors.primaryColorDarker
   },
   cancelButtonText: {
-    fontFamily: 'Avenir',
+    fontFamily: 'Avenir-Book',
     textAlign: 'center',
     fontSize: 17,
     color: Colors.primaryColorDarker
