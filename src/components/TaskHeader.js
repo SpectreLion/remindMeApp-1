@@ -50,7 +50,7 @@ export default class TaskHeader extends Component<{}> {
           source={require('./../../images/pattern.png')}>
           <TouchableHighlight
             style={ styles.btnBack}
-            onPress={this.props.method}>
+            onPress={this.props.goBackCategories}>
             <Image
               style={styles.btnBackButtonIcon}
               source={require('./../../images/back-btn.png')}

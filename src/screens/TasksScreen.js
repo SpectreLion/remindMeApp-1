@@ -95,7 +95,7 @@ export default class TasksScreen extends Component<{}> {
 
     return (
       <View style={styles.container}>
-        <TaskHeader method={this.goToCategoriesScreen} taksToBeCompleted={ this.calcultateToBeCompletedTasks(this.state.tasks) }/>
+        <TaskHeader goBackCategories={this.goToCategoriesScreen} taksToBeCompleted={ this.calcultateToBeCompletedTasks(this.state.tasks) }/>
         <ScrollView style={styles.tasksContainer}>
           {this.renderTasks(this.state.tasks)}
         </ScrollView>
