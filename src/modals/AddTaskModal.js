@@ -26,6 +26,7 @@ moment.locale('es')
 
 const screen = Dimensions.get('window');
 const currentDate = new Date();
+const monthDate = ['ENE','FEB','MAR','ABR','MAY','JUN','JUL','AGO','SEP','OCT','NOV','DIC'];
 
 let maximumDate = new Date();
 maximumDate.setFullYear(maximumDate.getFullYear(), maximumDate.getMonth() + 60)
@@ -35,15 +36,25 @@ export default class AddTaskModal extends Component<{}> {
 
   constructor(props){
     super(props);
+    this.formatSelectedDate = this.formatSelectedDate.bind(this);
     this.state = {
       taskText: '',
-      date: currentDate
+      date: currentDate,
+      milliDate: ''
     }
   }
 
+  formatSelectedDate(date){
+    const dateChangeMilli = new Date( Date.parse(date) );
+    let month = monthDate[dateChangeMilli.getMonth()];
+    let dateChangeFormat = month + ' ' + dateChangeMilli.getDate();
+    this.state.milliDate = dateChangeFormat;
+  }
+
   addTask(){
+    this.formatSelectedDate(this.state.date);
     if(this.state.taskText !== ''){
-      this.props.addTask(this.state.taskText);
+      this.props.addTask(this.state.taskText, this.state.milliDate);
     }else{
       //TODO: show an alert to the user!
     }
