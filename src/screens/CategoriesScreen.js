@@ -29,9 +29,6 @@ export default class CategoriesScreen extends Component<{}> {
     goToTasks(category){
       this.props.navigation.navigate('Tasks', {category: category})
     }
-    tit(category){
-      this.props.navigation.navigate('Tasks', {category: title})
-    }
   renderCategoriesIcons(categories){
           return categories.map( category => {
             return (<Categories
@@ -39,7 +36,6 @@ export default class CategoriesScreen extends Component<{}> {
                     id={category.id}
                     title={category.title}
                     goToCategory={this.goToTasks.bind(this)}
-                    tetas={this.tit.bind(this)}
                     image={category.image}/>)
             });
     }

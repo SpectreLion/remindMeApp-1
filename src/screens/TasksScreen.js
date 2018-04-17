@@ -35,13 +35,12 @@ const categories = {
   school: SchoolTasks,
   friends: FriendsTasks
 }
-/*
 const titles = {
-  home: home,
-  work: work,
-  school: school,
-  friends: friends
-}*/
+  home: "HOGAR",
+  work: "TRABAJO",
+  school: "ESCUELA",
+  friends: "AMIGOS"
+}
 export default class TasksScreen extends Component<{}> {
 
   constructor(props){
@@ -63,7 +62,6 @@ export default class TasksScreen extends Component<{}> {
     //Get categories parameter
     //Set state based on curent category
     this.setState({ tasks: categories[this.props.navigation.state.params.category]});
-      this.setState({ vamoAver: categories[this.props.navigation.state.params.category.title]});
   }
 
   openAddTaskModal(){
@@ -104,17 +102,14 @@ export default class TasksScreen extends Component<{}> {
                 id={task.id}
                 title={task.title}
                 completed={task.completed}
-
                 toggleTask={this.toggleTask.bind(this)}/>)
     });
-
   }
 
   render() {
-
     return (
       <View style={styles.container}>
-        <TaskHeader goBackCategories={this.goToCategoriesScreen} title={this.state.vamoAver} taksToBeCompleted={this.calcultateToBeCompletedTasks(this.state.tasks)}/>
+        <TaskHeader goBackCategories={this.goToCategoriesScreen}  titulo={titles[this.props.navigation.state.params.category]} taksToBeCompleted={this.calcultateToBeCompletedTasks(this.state.tasks)}/>
         <ScrollView style={styles.tasksContainer}>
           {this.renderTasks(this.state.tasks)}
         </ScrollView>
