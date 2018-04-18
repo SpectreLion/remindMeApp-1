@@ -9,6 +9,7 @@ import {
   Text,
   TouchableHighlight,
   Image,
+  ImageBackground,
   View,
   StatusBar
 } from 'react-native';
@@ -23,7 +24,10 @@ export default class HomeScreen extends Component<{}> {
   render() {
 
     return (
-      <View style={styles.container}>
+      <ImageBackground
+        style={styles.containerBack}
+        source={require('./../../images/pattern.png')}>
+        <View style={styles.container}>
         <StatusBar
           barStyle="light-content"
        />
@@ -38,16 +42,20 @@ export default class HomeScreen extends Component<{}> {
         </TouchableHighlight>
         <Image source={require('./../images/avatars.png')} />
       </View>
+      </ImageBackground>
+
     );
   }
 }
 
 const styles = StyleSheet.create({
+  containerBack: {
+    flex: 1
+  },
   container: {
     flex: 1,
     justifyContent: 'space-between',
     alignItems: 'center',
-    backgroundColor: Colors.primaryColorDarker,
   },
   remindMeLogo:{
     marginTop: 80
