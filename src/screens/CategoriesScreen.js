@@ -20,19 +20,22 @@ export default class CategoriesScreen extends Component<{}> {
   constructor(props){
     super(props);
     this.state={
-      categories:[{id:1,title:'TRABAJO',image:require('./../../images/category-work.png')},
-                  {id:2,title:'ESCUELA',image:require('./../../images/category-school.png')},
-                  {id:3,title:'HOGAR',image:require('./../../images/category-home.png')},
-                  {id:4,title:'AMIGOS',image:require('./../../images/category-friends.png')}]
+      categories:[{id:'work',title:'TRABAJO',image:require('./../../images/category-work.png')},
+                  {id:'school',title:'ESCUELA',image:require('./../../images/category-school.png')},
+                  {id:'home',title:'HOGAR',image:require('./../../images/category-home.png')},
+                  {id:'friends',title:'AMIGOS',image:require('./../../images/category-friends.png')}]
       }
     }
-
+    goToCategoryTasks(category){
+      this.props.navigation.navigate('Tasks', {category})
+    }
   renderCategoriesIcons(categories){
           return categories.map( category => {
             return (<Categories
                     key={category.id}
                     id={category.id}
                     title={category.title}
+                    goToCategory={this.goToCategoryTasks.bind(this)}
                     image={category.image}/>)
             });
     }

@@ -27,6 +27,12 @@ import WorkTasks from './../staticData/workTasks';
 
 const screen = Dimensions.get('window');
 
+const categories = {
+  home: {data: HomeTasks, title: "HOGAR"},
+  work: {data: WorkTasks, title: "TRABAJO"},
+  school: {data: SchoolTasks, title: "ESCUELA"},
+  friends:  {data: FriendsTasks, title: "AMIGOS"}
+}
 export default class TasksScreen extends Component<{}> {
 
   constructor(props){
@@ -45,7 +51,7 @@ export default class TasksScreen extends Component<{}> {
   componentWillMount(){
     //Get categories parameter
     //Set state based on curent category
-    this.setState({ tasks: WorkTasks });
+    this.setState({ tasks: categories[this.props.navigation.state.params.category].data});
   }
 
   openAddTaskModal(){
@@ -89,14 +95,12 @@ export default class TasksScreen extends Component<{}> {
                 completed={task.completed}
                 toggleTask={this.toggleTask.bind(this)}/>)
     });
-
   }
 
   render() {
-
     return (
       <View style={styles.container}>
-        <TaskHeader goBackCategories={this.goToCategoriesScreen} taksToBeCompleted={ this.calcultateToBeCompletedTasks(this.state.tasks) }/>
+        <TaskHeader goBackCategories={this.goToCategoriesScreen}  title={categories[this.props.navigation.state.params.category].title} taksToBeCompleted={this.calcultateToBeCompletedTasks(this.state.tasks)}/>
         <ScrollView style={styles.tasksContainer}>
           {this.renderTasks(this.state.tasks)}
         </ScrollView>

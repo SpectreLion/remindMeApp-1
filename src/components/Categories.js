@@ -27,6 +27,7 @@ export default class Categories extends Component<{}> {
     const { id,title,image } = this.props;
     return (
         <TouchableHighlight
+            onPress={ ()=> {this.props.goToCategory(id)} }
             underlayColor={Colors.touchableHover}>
           <View style={styles.container}>
             <Image
