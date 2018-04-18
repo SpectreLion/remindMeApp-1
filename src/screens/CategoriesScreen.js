@@ -26,8 +26,8 @@ export default class CategoriesScreen extends Component<{}> {
                   {id:'friends',title:'AMIGOS',image:require('./../../images/category-friends.png')}]
       }
     }
-    goToTasks(category){
-      this.props.navigation.navigate('Tasks', {category: category})
+    goToCategoryTasks(category){
+      this.props.navigation.navigate('Tasks', {category})
     }
   renderCategoriesIcons(categories){
           return categories.map( category => {
@@ -35,7 +35,7 @@ export default class CategoriesScreen extends Component<{}> {
                     key={category.id}
                     id={category.id}
                     title={category.title}
-                    goToCategory={this.goToTasks.bind(this)}
+                    goToCategory={this.goToCategoryTasks.bind(this)}
                     image={category.image}/>)
             });
     }
