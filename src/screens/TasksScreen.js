@@ -73,8 +73,8 @@ export default class TasksScreen extends Component<{}> {
     this.setState( tasks );
   }
 
-  addTask(text){
-    const newTask = { title: text, completed: false, id: this.state.tasks.length + 1 };
+  addTask(text,date){
+    const newTask = { title: text, date: new Date(date).getTime(), completed: false, id: this.state.tasks.length + 1 };
     this.setState({ tasks: [newTask, ...this.state.tasks] });
     this.closeAddTaskModal();
   }
@@ -85,6 +85,7 @@ export default class TasksScreen extends Component<{}> {
                 key={task.id}
                 id={task.id}
                 title={task.title}
+                date ={task.date}
                 completed={task.completed}
                 toggleTask={this.toggleTask.bind(this)}/>)
     });
@@ -121,7 +122,7 @@ export default class TasksScreen extends Component<{}> {
   }
 }
 
-// TODO: Create Theme styles (Buttons, Global Components, etc) so it can be imported on each component as required.
+
 const styles = StyleSheet.create({
   container: {
     flex: 1,
