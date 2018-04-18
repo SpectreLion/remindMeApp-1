@@ -122,7 +122,7 @@ const styles = StyleSheet.create({
   addTaskText: {
     fontFamily:'Avenir',
     fontSize:30,
-    color: 'white'
+    color: Colors.white
   },
   inputText:{
     width: 300,
@@ -155,7 +155,7 @@ const styles = StyleSheet.create({
       borderRadius: 27,
       borderStyle: 'solid',
       borderWidth: 2,
-      backgroundColor: 'white',
+      backgroundColor: Colors.white,
       borderColor: Colors.primaryColorDarker
   },
   cancelButtonText: {
