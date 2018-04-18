@@ -8,7 +8,6 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
-  Image,
   ImageBackground,
   Dimensions,
   View,
@@ -106,7 +105,7 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,.5)'
   },
   wrapperContainer: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.white,
     height: 567
   },
   headerContainer:{
@@ -121,7 +120,7 @@ const styles = StyleSheet.create({
     padding: 20
   },
   addTaskText: {
-    fontFamily:'Avenir-Book',
+    fontFamily:'Avenir',
     fontSize:30,
     color: 'white'
   },
@@ -144,7 +143,7 @@ const styles = StyleSheet.create({
       borderColor: Colors.primaryColorDarker
   },
   addButtonText: {
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'Avenir',
     textAlign: 'center',
     fontSize: 17,
     color: 'white'
@@ -160,7 +159,7 @@ const styles = StyleSheet.create({
       borderColor: Colors.primaryColorDarker
   },
   cancelButtonText: {
-    fontFamily: 'Avenir-Book',
+    fontFamily: 'Avenir',
     textAlign: 'center',
     fontSize: 17,
     color: Colors.primaryColorDarker
@@ -180,7 +179,7 @@ dateInput: {
 
  },
  dateText: {
-   fontFamily:'Avenir-Book',
+   fontFamily:'Avenir',
    fontSize:20,
    textAlign:'center',
    lineHeight:30,
