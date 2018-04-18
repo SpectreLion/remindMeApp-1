@@ -146,7 +146,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir',
     textAlign: 'center',
     fontSize: 17,
-    color: 'white'
+    color: Colors.white
   },
   cancelButton: {
       width: 325,
