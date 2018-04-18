@@ -8,7 +8,7 @@ import {
   StyleSheet,
   Text,
   TouchableHighlight,
-  Image,
+  ImageBackground,
   Dimensions,
   View,
   TextInput,
@@ -54,13 +54,11 @@ export default class AddTaskModal extends Component<{}> {
     return (
       <View style={styles.modalContainer}>
         <View style={styles.wrapperContainer}>
-          <View style={styles.headerContainer}>
-            <Image
-              style={styles.remindMeLogo}
-              source={require('./../images/remindMe-logo.png')}/>
-          </View>
+          <ImageBackground style={styles.headerContainer}
+            source={require('./../../images/pattern.png')}>
+            <Text style={styles.addTaskText}>AGREGAR TAREA</Text>
+          </ImageBackground>
           <View style={styles.bodyContainer}>
-              <Text style={styles.addTaskText}>Agregar Tarea</Text>
               <TextInput
                 style={styles.inputText}
                 placeholder="Nombre de la tarea"
@@ -107,29 +105,24 @@ const styles = StyleSheet.create({
     backgroundColor: 'rgba(0,0,0,.5)'
   },
   wrapperContainer: {
-    backgroundColor: 'white',
+    backgroundColor: Colors.white,
     height: 567
   },
   headerContainer:{
-    flex: 1,
+    height:150,
     justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: Colors.primaryColorDarker
-  },
-  remindMeLogo:{
-    width: 285,
+    alignItems: 'center'
   },
   bodyContainer: {
     flex: 1,
-    height: 315,
     justifyContent: 'space-around',
     alignItems: 'center',
     padding: 20
   },
   addTaskText: {
-    fontFamily: 'Avenir',
-    fontSize: 16,
-    textAlign: 'center'
+    fontFamily:'Avenir',
+    fontSize:30,
+    color: Colors.white
   },
   inputText:{
     width: 300,
@@ -153,7 +146,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Avenir',
     textAlign: 'center',
     fontSize: 17,
-    color: 'white'
+    color: Colors.white
   },
   cancelButton: {
       width: 325,
@@ -162,7 +155,7 @@ const styles = StyleSheet.create({
       borderRadius: 27,
       borderStyle: 'solid',
       borderWidth: 2,
-      backgroundColor: 'white',
+      backgroundColor: Colors.white,
       borderColor: Colors.primaryColorDarker
   },
   cancelButtonText: {
@@ -186,7 +179,7 @@ dateInput: {
 
  },
  dateText: {
-   fontFamily:'Avenir-Book',
+   fontFamily:'Avenir',
    fontSize:20,
    textAlign:'center',
    lineHeight:30,
