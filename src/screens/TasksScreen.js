@@ -28,10 +28,10 @@ import WorkTasks from './../staticData/workTasks';
 const screen = Dimensions.get('window');
 
 const categories = {
-  home: {Data: HomeTasks, Titulo: "HOGAR"},
-  work: {Data: WorkTasks, Titulo: "TRABAJO"},
-  school: {Data: SchoolTasks, Titulo: "ESCUELA"},
-  friends:  {Data: FriendsTasks, Titulo: "AMIGOS"}
+  home: {data: HomeTasks, title: "HOGAR"},
+  work: {data: WorkTasks, title: "TRABAJO"},
+  school: {data: SchoolTasks, title: "ESCUELA"},
+  friends:  {data: FriendsTasks, title: "AMIGOS"}
 }
 export default class TasksScreen extends Component<{}> {
 
@@ -51,7 +51,7 @@ export default class TasksScreen extends Component<{}> {
   componentWillMount(){
     //Get categories parameter
     //Set state based on curent category
-    this.setState({ tasks: categories[this.props.navigation.state.params.category].Data});
+    this.setState({ tasks: categories[this.props.navigation.state.params.category].data});
   }
 
   openAddTaskModal(){
@@ -99,7 +99,7 @@ export default class TasksScreen extends Component<{}> {
   render() {
     return (
       <View style={styles.container}>
-        <TaskHeader goBackCategories={this.goToCategoriesScreen}  titulo={categories[this.props.navigation.state.params.category].Titulo} taksToBeCompleted={this.calcultateToBeCompletedTasks(this.state.tasks)}/>
+        <TaskHeader goBackCategories={this.goToCategoriesScreen}  title={categories[this.props.navigation.state.params.category].title} taksToBeCompleted={this.calcultateToBeCompletedTasks(this.state.tasks)}/>
         <ScrollView style={styles.tasksContainer}>
           {this.renderTasks(this.state.tasks)}
         </ScrollView>

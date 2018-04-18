@@ -40,7 +40,7 @@ export default class TaskHeader extends Component<{}> {
   }
 
   render() {
-    const { taksToBeCompleted, titulo } = this.props;
+    const { taksToBeCompleted, title } = this.props;
     return (
       <View style={styles.container}>
         <ImageBackground
@@ -54,7 +54,7 @@ export default class TaskHeader extends Component<{}> {
               source={require('./../../images/back-btn.png')}
             />
           </TouchableHighlight>
-          <Text style={styles.todosText}>{titulo}</Text>
+          <Text style={styles.todosText}>{title}</Text>
           <Text style={styles.todosText}>{taksToBeCompleted} Pendientes</Text>
           <Text style={styles.dateText}>{this.getFormatedDate()}</Text>
         </ImageBackground>
