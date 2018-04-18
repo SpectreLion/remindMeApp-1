@@ -2,7 +2,6 @@
  * RemindMe App
  * home Screen
  */
-
 import React, { Component } from 'react';
 import {
   StyleSheet,
