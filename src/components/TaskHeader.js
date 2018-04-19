@@ -55,7 +55,7 @@ export default class TaskHeader extends Component<{}> {
             />
           </TouchableHighlight>
           <Text style={styles.titleText}>{title}</Text>
-          <Text style={styles.textPendientes}>{taksToBeCompleted} Pendientes</Text>
+          <Text style={styles.textPendingTask}>{taksToBeCompleted} Pendientes</Text>
           <Text style={styles.dateText}>{this.getFormatedDate()}</Text>
         </ImageBackground>
       </View>
@@ -93,10 +93,9 @@ const styles = StyleSheet.create({
   dateText:{
     ...Typografy.avenirFont,
     fontSize: 16,
-    color: Colors.gray,
-    fontFamily: 'Avenir'
+    color: Colors.gray
   },
-  textPendientes:{
+  textPendingTask:{
     ...Typografy.avenirFont,
     fontSize: 36,
     color:Colors.white,

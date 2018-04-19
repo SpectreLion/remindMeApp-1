@@ -28,12 +28,8 @@ export default class Task extends Component<{}> {
 
   render() {
 
-    const { id, title} = this.props;
-    let { completed } = this.props;
-    let {date} = this.props;
+    const { id, title,completed,date} = this.props;
     let helper = new Helper();
-    let help = new Helper();
-
 
     return (
         <TouchableHighlight
@@ -42,7 +38,7 @@ export default class Task extends Component<{}> {
             onPress={ () => { this.props.toggleTask(id) } }>
           <View style={styles.container}>
             <View style={completed ? styles.lineCompleted : styles.dateContainer}>
-              <Text style={completed ? styles.taskCompletedText : styles.dayText}>{help.formatDay(date)}</Text>
+              <Text style={completed ? styles.taskCompletedText : styles.dayText}>{helper.formatDay(date)}</Text>
               <Text style={completed ? styles.taskCompletedDate : styles.monthText}>{helper.formatMonth(date)}</Text>
             </View>
             <View style={styles.taskForm}>
