@@ -131,11 +131,12 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     alignItems: 'center',
-    backgroundColor: Colors.white
+    backgroundColor: Colors.backgroundTask
   },
   tasksContainer: {
     flex: 1,
-    width: screen.width
+    width: screen.width,
+    marginTop: 21
   },
   addTaskButton: {
     flex: 1,

@@ -54,8 +54,8 @@ export default class TaskHeader extends Component<{}> {
               source={require('./../../images/back-btn.png')}
             />
           </TouchableHighlight>
-          <Text style={styles.todosText}>{title}</Text>
-          <Text style={styles.todosText}>{taksToBeCompleted} Pendientes</Text>
+          <Text style={styles.titleText}>{title}</Text>
+          <Text style={styles.textPendingTask}>{taksToBeCompleted} Pendientes</Text>
           <Text style={styles.dateText}>{this.getFormatedDate()}</Text>
         </ImageBackground>
       </View>
@@ -66,9 +66,8 @@ export default class TaskHeader extends Component<{}> {
 // TODO: Create Theme styles (Buttons, Global Components, etc) so it can be imported on each component as required.
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
     width: screen.width,
-    height: 399,
+    height: 200,
     alignItems: 'center',
     justifyContent: 'center',
     overflow: 'hidden'
@@ -77,7 +76,7 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     width: screen.width,
-    height: 399,
+    height: 200,
     alignItems: 'center'
   },
   avatar:{
@@ -85,16 +84,25 @@ const styles = StyleSheet.create({
     height: 130,
     borderRadius: 65
   },
-  todosText:{
+  titleText:{
     ...Typografy.avenirFont,
     fontSize: 36,
-    color: Colors.white
+    color: Colors.white,
+    textAlign: 'center',
   },
   dateText:{
     ...Typografy.avenirFont,
     fontSize: 16,
-    color: Colors.gray,
-    fontFamily: 'Avenir'
+    color: Colors.gray
+  },
+  textPendingTask:{
+    ...Typografy.avenirFont,
+    fontSize: 36,
+    color:Colors.white,
+    textAlign: 'center',
+    letterSpacing: 0.6
+
+
   },
   btnBack:{
     alignSelf: 'flex-start',
